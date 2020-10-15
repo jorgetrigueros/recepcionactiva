@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
+    <link rel="stylesheet" href="css/icons/font/flaticon.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css"> -->
+    <link rel="stylesheet" href="css/jqx.base.css" type="text/css" />
+    <title>Reserva de cita previa</title>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="image/logoKia3.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mis citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mis presupuestos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mis facturas</a>
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+
+                <div class="person">
+                    <a href="#" alt="Ivan Gil" style="color:#fff" title="Ivan Gil"><i class="fas fa-user"></i></a>
+                </div>
+
+                <!-- <form class="form-inline mt-2 mt-md-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- main -->
+    <main role="main" id="main" style="min-height:400px;">
+
+
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+            <div class="row featurette" style="margin-top:3px;">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading" id="featureheading"></h2>
+                    <p class="lead" id="featurecontent"></p>
+                </div>
+                <div class="col-md-5" style="display: none;">
+                    <img class="featurette-image img-fluid mx-auto" id="featureImg" data-src="holder.js/500x500/auto"
+                        alt="320x250" src="" data-holder-rendered="true">
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="row featurette">
+                <!-- Steppers-->
+                <div class="row">
+                    <div class="col-md-12 mt-5">
+                        <h2>Reserva de cita previa</h2>
+                        <h3 id="concesionarioSelected"></h3>
+                        <div id="stepper1" class="bs-stepper">
+                            <div class="bs-stepper-header">
+                                <div class="step" data-target="#test-l-1">
+                                    <button type="button" class="btn step-trigger">
+                                        <span class="bs-stepper-circle">1</span>
+                                        <span class="bs-stepper-label">Seleccionar concesionario</span>
+                                    </button>
+                                </div>
+                                <div class="line"></div>
+                                <div class="step" data-target="#test-l-2">
+                                    <button type="button" class="btn step-trigger">
+                                        <span class="bs-stepper-circle">2</span>
+                                        <span class="bs-stepper-label">Datos del vehículo</span>
+                                    </button>
+                                </div>
+                                <div class="line"></div>
+                                <div class="step" data-target="#test-l-3">
+                                    <button type="button" class="btn step-trigger">
+                                        <span class="bs-stepper-circle">3</span>
+                                        <span class="bs-stepper-label">Seleccionar servicios</span>
+                                    </button>
+                                </div>
+                                <div class="step" data-target="#test-l-4">
+                                    <button type="button" class="btn step-trigger">
+                                        <span class="bs-stepper-circle">4</span>
+                                        <span class="bs-stepper-label">Seleccionar fecha</span>
+                                    </button>
+                                </div>
+                                <div class="step" data-target="#test-l-5">
+                                    <button type="button" class="btn step-trigger">
+                                        <span class="bs-stepper-circle">5</span>
+                                        <span class="bs-stepper-label">Resumen</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- alert panel -->
+                            <div class="alert alert-success" role="alert" style="display: none;" id="alert">
+                                <h4 class="alert-heading">Cita creada</h4>
+                                <p>La cita ha sido registrada correctamente.</p>
+                                <hr>
+                                <p class="mb-0">Por favor, si no puede acudir a la cita establecida pongase en contacto
+                                    con su asesor comercial o cancele la cita desde la gestión de citas.</p>
+                            </div>
+
+                            <div class="bs-stepper-content">
+                                <div id="test-l-1" class="content">
+                                    <!-- Stepper 1-->
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#gmap" role="tab"
+                                                aria-controls="home" aria-selected="true">Mostrar en el mapa</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" id="profile-tab" data-toggle="tab"
+                                                href="#listatalleres" role="tab" aria-controls="profile"
+                                                aria-selected="false">Mostrar listado</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade" id="gmap" role="tabpanel" aria-labelledby="home-tab">
+                                            <!--The div element for the map -->
+                                            <div id="map"></div>
+                                        </div>
+                                        <div class="tab-pane fade show active" id="listatalleres" role="tabpanel"
+                                            aria-labelledby="profile-tab">
+                                            <!--Buscador de talleres-->
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" placeholder="Filtrar talleres"
+                                                    aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
+                                            <!-- Listado de talleres de reparacion-->
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <div class="container" id="listadoconce">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="test-l-2" class="content">
+                                    <!-- datos de mi vehiculo-->
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="inputmatricula">Matrícula</label>
+                                            <input type="text" class="form-control" id="inputmatricula"
+                                                aria-describedby="matriculaHelp">
+                                            <small id="matriculaHelp" class="form-text text-muted">Introduce la
+                                                matrícula del vehículo. Ej. 7010CRD.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputKms">Kilometraje (km) de mi vehículo</label>
+                                            <input type="number" class="form-control" id="inputKms"
+                                                aria-describedby="kmsHelp">
+                                            <small id="kmsHelp" class="form-text text-muted">Introduce los kilometros
+                                                que tiene actualmente tu vehículo.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputVin">Número de identificación del vehículo (VIN)</label>
+                                            <input type="text" class="form-control" id="inputVin"
+                                                aria-describedby="vinHelp">
+                                            <small id="vinHelp" class="form-text text-muted">El número de identificación
+                                                del vehículo (VIN o Chasis) es un número de 17 dígitos que se emplea
+                                                para identificar su vehículo de forma inequívoca en todo el
+                                                mundo.</small>
+                                        </div>
+                                    </form>
+                                    <div class="continue-buttons">
+                                        <button class="btn btn-primary" onclick="stepper1.previous()">Anterior</button>
+                                        <button class="btn btn-primary" onclick="stepper1.next()">Siguiente</button>
+                                    </div>
+                                </div>
+                                <div id="test-l-3" class="content">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-left btnCollapse"
+                                                        type="button" data-toggle="collapse" data-target="#collapseOne"
+                                                        aria-expanded="true" aria-controls="collapseOne">
+                                                        <i class="flaticon-garage"></i>&nbsp;Mantenimiento
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <ul class="list-group" id="items-mantenimiento">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingTwo">
+                                                <h2 class="mb-0">
+                                                    <button
+                                                        class="btn btn-link btn-block text-left btnCollapse collapsed"
+                                                        type="button" data-toggle="collapse" data-target="#collapseTwo"
+                                                        aria-expanded="false" aria-controls="collapseTwo">
+                                                        <i
+                                                            class="flaticon-wheel-and-manometer"></i>&nbsp;LLantas/neumáticos
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <ul class="list-group" id="items-neumaticos">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree">
+                                                <h2 class="mb-0">
+                                                    <button
+                                                        class="btn btn-link btn-block text-left btnCollapse collapsed"
+                                                        type="button" data-toggle="collapse"
+                                                        data-target="#collapseThree" aria-expanded="false"
+                                                        aria-controls="collapseThree">
+                                                        <i class="flaticon-chassis" style="color:#000;"></i>&nbsp;
+                                                        Pimtura / Carrocería
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <ul class="list-group" id="items-carroceria">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingFour">
+                                                <h2 class="mb-0">
+                                                    <button
+                                                        class="btn btn-link btn-block text-left btnCollapse collapsed"
+                                                        type="button" data-toggle="collapse" data-target="#collapseFour"
+                                                        aria-expanded="false" aria-controls="collapseFour">
+                                                        <i class="flaticon-chassis" style="color:#000;"></i>&nbsp;
+                                                        Mecánica
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <ul class="list-group" id="items-mecanica">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="continue-buttons">
+                                        <button class="btn btn-primary" onclick="stepper1.previous()">Anterior</button>
+                                        <button class="btn btn-primary" onclick="stepper1.next()">Siguiente</button>
+                                    </div>
+                                </div>
+                                <div id="test-l-4" class="content" style="min-height: 500px;">
+                                    <!-- fecha seleccionar-->
+                                    <!-- <div id='calendar'></div> -->
+                                    <!-- <div class="row">
+                                        <div class="col-xs-8">
+                                            <div id="scheduler"></div>
+                                        </div>
+                                        <div class="col-xs-4" >
+                                            <span>Seleccione la hora de las disponibles</span>
+                                            <button class="btn btn-primary" onclick="selHoraCita()">08:00 AM</button>
+                                            <button class="btn btn-primary" onclick="selHoraCita()">14:00 PM</button>    
+                                        </div>                                        
+                                    </div> -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id="scheduler"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal horas-->
+                                    <div class="modal" tabindex="-1" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Seleccione la hora de la cita</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <button class="btn btn-primary"
+                                                        onclick="selHoraCita('08:00')">08:00</button>
+                                                    <button class="btn btn-primary"
+                                                        onclick="selHoraCita('14:00')">14:00</button>
+                                                </div>
+                                                <!-- <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="continue-buttons">
+                                        <button class="btn btn-primary" onclick="stepper1.previous()">Anterior</button>
+                                        <button class="btn btn-primary" onclick="stepper1.next()">Siguiente</button>
+                                    </div>
+                                </div>
+                                <div id="test-l-5" class="content">
+                                    <!-- Resumen-->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="invoice-title">
+                                                    <h2>Resumen de la reserva</h2>
+                                                    <!-- <h3 class="pull-right">Order # 12345</h3> -->
+                                                </div>
+                                                <hr>
+                                                <div class="row adjusted">
+                                                    <div class="col-xs-6">
+                                                        <address>
+                                                            <strong>Billed To:</strong><br>
+                                                            Iván Gil<br>
+                                                            1234 Main<br>
+                                                            Apt. 4B<br>
+                                                            Madrid, 28080
+                                                        </address>
+                                                    </div>
+                                                    <div class="col-xs-6 text-right">
+                                                        <address>
+                                                            <strong>Shipped To:</strong><br>
+                                                            Iván Gil<br>
+                                                            1234 Main<br>
+                                                            Apt. 4B<br>
+                                                            Madrid, 28080
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                                <div class="row adjusted">
+                                                    <div class="col-xs-6">
+                                                        <address>
+                                                            <strong>Datos del vehículo:</strong><br>
+                                                            Matrícula: <span id="matvh"></span><br>
+                                                            Kms: <span id="kmsvh"></span><br>
+                                                            VIN: <span id="vinvh"></span><br>
+                                                        </address>
+                                                    </div>
+                                                    <div class="col-xs-6 text-right">
+                                                        <address>
+                                                            <strong>Fecha entrega:</strong><br>
+                                                            <span id="fechaCita"></span><br><br>
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title"><strong>Servicios solicitados</strong>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-condensed">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <td><strong>Categoría</strong></td>
+                                                                        <td><strong>Item</strong></td>
+                                                                        <!-- <td class="text-center"><strong>Price</strong></td>-->
+                                                                        <td class="text-center">
+                                                                            <strong>Quantity</strong></td>
+                                                                        <td class="text-right"><strong>Totals</strong>
+                                                                        </td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="bodyInvoice">
+                                                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                                                    <!-- sample -->
+                                                                    <!-- <tr>
+                                                                        <td>BS-200</td>
+                                                                        <td class="text-center">$10.99</td>
+                                                                        <td class="text-center">1</td>
+                                                                        <td class="text-right"></td>
+                                                                    </tr> -->
+                                                                    <!-- Si se quieren añadir los subtotal y total-->
+                                                                    <!-- <tr>
+                                                                        <td class="thick-line"></td>
+                                                                        <td class="thick-line"></td>
+                                                                        <td class="thick-line text-center">
+                                                                            <strong>Subtotal</strong></td>
+                                                                        <td class="thick-line text-right">$670.99</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="no-line"></td>
+                                                                        <td class="no-line"></td>
+                                                                        <td class="no-line text-center">
+                                                                            <strong>Shipping</strong></td>
+                                                                        <td class="no-line text-right">$15</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="no-line"></td>
+                                                                        <td class="no-line"></td>
+                                                                        <td class="no-line text-center">
+                                                                            <strong>Total</strong></td>
+                                                                        <td class="no-line text-right">$685.99</td>
+                                                                    </tr> -->
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="continue-buttons" id="botonera-final">
+                                        <button class="btn btn-primary" onclick="stepper1.previous()">Anterior</button>
+                                        <button class="btn btn-success" onclick="reservarCita()">Reservar cita</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End steppers-->
+                    </div>
+
+                    <!-- START THE FEATURETTES -->
+                    <hr class="divider">
+                    <!-- /END THE FEATURETTES -->
+                </div>
+            </div>
+        </div><!-- /.container -->
+
+    </main>
+
+    <div class="spinner-border" role="status" id="spinner" style="display: none;">
+        <span class="sr-only">Creando cita...</span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto centered" style="margin:0 auto;">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">© 2020-2021 Company, Inc. | </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Protección de datos | </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Aviso legal</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from
+                <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+            </div>
+        </nav>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <!--stepper-->
+    <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
+    <!-- fullCalendar-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js"></script> -->
+
+    <!--Font awesome-->
+    <script src="https://kit.fontawesome.com/8cae1baa88.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/jqxcore.js"></script>
+    <script type="text/javascript" src="js/jqxbuttons.js"></script>
+    <script type="text/javascript" src="js/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="js/jqxdata.js"></script>
+    <script type="text/javascript" src="js/jqxdate.js"></script>
+    <script type="text/javascript" src="js/jqxscheduler.js"></script>
+    <script type="text/javascript" src="js/jqxscheduler.api.js"></script>
+    <script type="text/javascript" src="js/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="js/jqxmenu.js"></script>
+    <script type="text/javascript" src="js/jqxcalendar.js"></script>
+    <script type="text/javascript" src="js/jqxtooltip.js"></script>
+    <script type="text/javascript" src="js/jqxwindow.js"></script>
+    <script type="text/javascript" src="js/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="js/jqxlistbox.js"></script>
+    <script type="text/javascript" src="js/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="js/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="js/jqxradiobutton.js"></script>
+    <script type="text/javascript" src="js/jqxinput.js"></script>
+    <script type="text/javascript" src="js/globalization/globalize.js"></script>
+
+    <!-- Google maps-->
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiUpYiaQkS03UTRbtGk208r1zf7uYHz7A&callback=initMap">
+        </script>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
